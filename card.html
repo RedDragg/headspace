@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        
+        }
+
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        article:first-of-type{
+            display: grid;
+            padding: 1rem;
+            gap: 1.5rem;
+                
+        
+        div:nth-of-type(2) p{
+                width: 12rem;
+            }
+
+
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            background-color: #F9F4F2;
+            padding: 1.5rem 1rem; 
+            border-radius: 1rem;
+            align-items: center;
+            
+            p{
+                font-size: 1.5rem;
+                line-height: 120%;
+                font-weight: bold;
+                color: #2D2C2B;
+                letter-spacing: -0.03em;
+                text-align: center;
+            }
+
+
+a {
+    display: inline-block;
+
+    width: max-content;
+    height: 3rem;
+    padding: 0.875rem 1.25rem;
+
+    background-color: #2d2c2b;
+    color: #fff;
+
+    border: 0.125rem solid transparent;
+    border-radius: 2rem;
+
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.1;
+    text-decoration: none;
+
+
+    transition:
+        color 150ms cubic-bezier(0.32, 0.94, 0.6, 1),
+        background-color 150ms cubic-bezier(0.32, 0.94, 0.6, 1),
+        border-color 150ms cubic-bezier(0.32, 0.94, 0.6, 1),
+        box-shadow 150ms cubic-bezier(0.32, 0.94, 0.6, 1),
+        transform 150ms cubic-bezier(0.32, 0.94, 0.6, 1);
+}
+
+a:hover {
+    background-color: #454341;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+}
+
+a:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+a:focus-visible {
+    outline: 0.1875rem solid #7c6cff;
+    outline-offset: 0.1875rem;
+}
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+
+        }
+
+}
+    </style>
+</head>
+
+<body>
+    <main>
+        <article>
+            <div>
+                <p>Mental health app with expert-led meditations and tools</p>
+
+                <a href="">Try for $0</a>
+
+                <img src="img/mobile_hero_1_june5_2x__1_.avif" alt="Mental health app">
+
+            </div>
+            <div>
+                <p>Online therapy that accepts insurance</p>
+
+                <a href="">Check your coverage</a>
+
+                <img src="img/mobile_hero_2_june5_2x__1_.avif" alt="Online therapy">
+            </div>
+        </article>
+
+    </main>
+</body>
+</html>
