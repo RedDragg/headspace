@@ -49,6 +49,7 @@ nav {
   justify-content: center;
   background-color: white;
   padding: 1rem 2rem;
+  
 
   &:has(#menu-toggle:checked) {
     > div {
@@ -107,10 +108,10 @@ nav {
 
   /* hamburger menu codes */
   > div {
-    position: absolute;
+    position: fixed;
     background-color: white;
     inset: 0;
-    transform: translateX(150vh);
+    transform: translateX(100%);
 
     > ul {
       padding: var(--submenu-padding);
@@ -301,7 +302,8 @@ nav {
               flex-direction: column;
               gap: 2rem;
               height: 40.5rem;
-              overflow: scroll;
+              overflow-y: auto;
+                overflow-x: hidden;
 
               > a {
                 text-decoration: none;
