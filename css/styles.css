@@ -301,7 +301,7 @@ nav {
               display: flex;
               flex-direction: column;
               gap: 2rem;
-              height: 40.5rem;
+              height: 74vh;
               overflow-y: auto;
                 overflow-x: hidden;
 
