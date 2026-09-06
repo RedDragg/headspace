@@ -685,6 +685,7 @@ main article:nth-of-type(2) {
     overscroll-behavior: contain;
 
     padding-top: clamp(15rem, 29%, 23rem);
+    padding-bottom: 4rem;
     h4 {
       text-rendering: optimizelegibility;
       font-size: 1.5rem;
