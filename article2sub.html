@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll alleen binnen de lijst</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 200vh;
+      font-family: Arial, sans-serif;
+      color: #171717;
+      background: #f5f5f5;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      box-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    #open-modal {
+      padding: 0.8rem 1.25rem;
+      color: white;
+      background: #075cb5;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    main {
+      width: min(55rem, 90%);
+      margin: 3rem auto;
+    }
+
+    main section {
+      min-height: 80vh;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 1rem;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: none;
+      place-items: center;
+      padding: 2rem;
+      background: rgb(0 0 0 / 60%);
+    }
+
+    .modal.active {
+      display: grid;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(25rem, 100%);
+      max-height: calc(100dvh - 4rem);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: #ffb900;
+      border-radius: 2rem;
+    }
+
+    #close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: white;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .modal-header {
+      flex-shrink: 0;
+      padding: 3.5rem 2rem 1rem;
+      text-align: center;
+    }
+
+    .modal-header .art {
+      margin-bottom: 1.5rem;
+      font-size: 4rem;
+    }
+
+    .modal-header p {
+      margin-bottom: 0;
+    }
+
+    /* Alleen deze ul kan scrollen. */
+    .modal-content ul {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 1rem 2rem;
+      list-style: none;
+      scrollbar-color: #555 transparent;
+      scrollbar-width: thin;
+    }
+
+    .modal-content li {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      margin-bottom: 1.25rem;
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 3rem;
+      height: 3rem;
+      background: #fff3a1;
+      border-radius: 50%;
+      font-size: 1.5rem;
+    }
+
+    li strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    li p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .modal-footer {
+      flex-shrink: 0;
+      padding: 1rem;
+      background: #ffb900;
+      box-shadow: 0 -5px 12px rgb(0 0 0 / 6%);
+    }
+
+    .modal-footer button {
+      width: 100%;
+      padding: 1rem;
+      background: white;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 30rem) {
+      .modal {
+        padding: 1rem;
+      }
+
+      .modal-content {
+        max-height: calc(100dvh - 2rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <strong>Headspace</strong>
+    <button id="open-modal" type="button">Open menu</button>
+  </nav>
+
+  <main>
+    <section>
+      <h1>De achtergrondpagina</h1>
+      <p>Scroll eerst door deze pagina en open daarna het menu. Als het menu open is, kan de achtergrond niet meer scrollen.</p>
+    </section>
+    <section>
+      <h2>Meer achtergrondcontent</h2>
+      <p>In het gele menu kan alleen de lijst in het midden scrollen. De introductie en knop blijven zichtbaar.</p>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <article class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="close-modal" type="button" aria-label="Sluiten">&times;</button>
+
+      <header class="modal-header">
+        <div class="art">🧘‍♂️</div>
+        <h2 id="modal-title">Reframe stress</h2>
+        <p>Vind balans met verschillende oefeningen.</p>
+      </header>
+
+      <ul>
+        <li>
+          <span class="icon">😌</span>
+          <div><strong>Meditaties voor ieder moment</strong><p>Ontdek meer dan duizend begeleide meditaties.</p></div>
+        </li>
+        <li>
+          <span class="icon">🆘</span>
+          <div><strong>SOS Collection</strong><p>Snelle oefeningen voor stressvolle momenten.</p></div>
+        </li>
+        <li>
+          <span class="icon">🌿</span>
+          <div><strong>Stressmanagement</strong><p>Leer omgaan met moeilijke momenten.</p></div>
+        </li>
+        <li>
+          <span class="icon">👩🏽</span>
+          <div><strong>Programma's van experts</strong><p>Volg lessen om stress los te laten.</p></div>
+        </li>
+        <li>
+          <span class="icon">🌙</span>
+          <div><strong>Beter slapen</strong><p>Rustgevende oefeningen voor het slapengaan.</p></div>
+        </li>
+        <li>
+          <span class="icon">🎯</span>
+          <div><strong>Meer focus</strong><p>Korte sessies om je concentratie te verbeteren.</p></div>
+        </li>
+      </ul>
+
+      <footer class="modal-footer">
+        <button type="button">Try for free</button>
+      </footer>
+    </article>
+  </div>
+
+  <script>
+    const modal = document.querySelector("#modal");
+    const openButton = document.querySelector("#open-modal");
+    const closeButton = document.querySelector("#close-modal");
+
+    function openModal() {
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    openButton.addEventListener("click", openModal);
+    closeButton.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed navigatie onder bovenbalk</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --text-color: #2d2c2b;
+      --top-background-color: #ffce00;
+    }
+
+    body {
+      min-height: 200vh;
+      font-family: Arial, sans-serif;
+      color: var(--text-color);
+      background: #f6f6f6;
+    }
+
+    body > div:first-of-type {
+      width: 100%;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--top-background-color);
+    }
+
+    body > div:first-of-type a {
+      color: var(--text-color);
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: 1.625rem;
+    }
+
+    nav {
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      position: fixed;
+      top: 0;
+      z-index: 3;
+      box-shadow: 0 4px 14px rgb(0 0 0 / 8%);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    main {
+      padding: 3rem 2rem 4rem;
+      max-width: 60rem;
+      margin: 0 auto;
+    }
+
+    section {
+      min-height: 65vh;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 1rem;
+    }
+
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 42rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <a href="#">Dit is de bovenste melding</a>
+  </div>
+
+  <nav>
+    <strong>Logo</strong>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#over">Over</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h1>Sticky navigatie onder een melding</h1>
+      <p>Scroll naar beneden. De gele melding verdwijnt uit beeld. Zodra de witte navigatie de bovenkant bereikt, blijft alleen de navigatie vaststaan.</p>
+    </section>
+
+    <section id="over">
+      <h2>Meer content</h2>
+      <p>De melding en navigatie beginnen allebei in de normale documentflow. Alleen de navigatie gebruikt position: sticky.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Onderaan</h2>
+      <p>De gele melding is nu verdwenen, terwijl de witte navigatie bovenaan zichtbaar blijft.</p>
+    </section>
+  </main>
+</body>
+</html>

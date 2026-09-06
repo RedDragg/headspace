@@ -160,8 +160,126 @@
             </div>
         </article>
 
+        <article>
+            <h2>What kind of headspace are you looking for?</h2>
+            <ul>
+                <li>
+                    <p>Stress less</p>
+                    <div>
+                        <img src="img/guided-meditations.png" alt="Guided meditation">
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <p>Sleep soundly</p>
+                    <div>
+                        <img src="img/guided-meditations.png" alt="Guided meditation">
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <p>Manage anxiety</p>
+                    <div>
+                        <img src="img/guided-meditations.png" alt="Guided meditation">
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <p>Process thoughts</p>
+                    <div>
+                        <img src="img/guided-meditations.png" alt="Guided meditation">
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <p>practice meditation</p>
+                    <div>
+                        <img src="img/guided-meditations.png" alt="Guided meditation">
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <p>Start therapy</p>
+                    <div>
+                        <img src="img/guided-meditations.png" alt="Guided meditation">
+                        <span></span>
+                    </div>
+                </li>
+                
+            </ul>
+
+            <ul>
+                <li>
+                    <button></button>
+                    <img src="img/Frame__2_main_.svg" role="img">
+                    <h4>Reframe stress</h4>
+                    <p>Find balance in the hustle and bustle of everyday life with different stress-relieving techniques. </p>
+                    <ul>
+                        <li>
+                            <img src="img/guided-meditations.svg" role="img">
+                            <div>
+                                <p>Meditation for every moment</p>
+                                <p>Explore 1,000+ guided meditations</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/Frame__2.1_.svg" role="img">
+                            <div>
+                                <p>SOS Collection</p>
+                                <p>Emergency meditations when you need them</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/stress-management.svg" role="img">
+                            <div>
+                                <p>Stress management</p>
+                                <p>Learn new skills to get through difficult moments</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/Frame.avif">
+                            <div>
+                                <p>Expert-led programs</p>
+                                <p>Take courses on how to let go of stress</p>
+                            </div>
+                        </li>
+                        
+                    </ul>
+
+                    <div>
+                        <a>Try for free</a>
+                    </div>
+                </li>
+            </ul>
+        </article>
+
     </main>
 
+    <script>
+const openItems = document.querySelectorAll(
+  "main article:nth-of-type(2) ul:first-of-type li"
+);
+
+const modal = document.querySelector(
+  "main article:nth-of-type(2) ul:last-of-type"
+);
+
+const closeButton = modal.querySelector("button");
+
+openItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    modal.classList.add("is-open");
+    document.body.classList.add("modal-open");
+  });
+});
+
+closeButton.addEventListener("click", () => {
+  modal.classList.remove("is-open");
+  document.body.classList.remove("modal-open");
+});
+
+
+    </script>
 </body>
 
 </html>
