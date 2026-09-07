@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider met minimale classes</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #2d2c2b;
+      background: white;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    .slider {
+      width: min(100%, 32rem);
+      margin: 0 auto;
+      padding-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    /* Categorieknoppen */
+    .slider > nav {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .slider > nav::-webkit-scrollbar,
+    .slides::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider > nav button {
+      flex-shrink: 0;
+      padding: 1rem 1.5rem;
+      border: 0;
+      border-radius: 999px;
+      color: #2d2c2b;
+      background: #f8f3f1;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .slider > nav button span {
+      display: none;
+      width: 0.75rem;
+      height: 0.75rem;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .slider > nav button.active {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      background: #2d2c2b;
+    }
+
+    .slider > nav button.active span {
+      display: block;
+    }
+
+    /* Horizontale scrollcontainer */
+    .slides {
+      display: flex;
+      gap: 0.75rem;
+      padding-inline: 1rem;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      touch-action: pan-x;
+    }
+
+    /* Alle slides */
+    .slides > article {
+      flex: 0 0 calc(100% - 2rem);
+      min-height: 34rem;
+      padding: 2.25rem 1.75rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      scroll-snap-align: center;
+      text-align: center;
+    }
+
+    .slides > article:nth-child(1) {
+      background: #ffcf00;
+    }
+
+    .slides > article:nth-child(2) {
+      background: #fa9dcc;
+    }
+
+    .slides > article:nth-child(3) {
+      color: white;
+      background: #60269e;
+    }
+
+    /* Emoji bovenaan */
+    .slides figure {
+      display: grid;
+      place-items: center;
+      min-height: 11rem;
+      margin: 0 0 1.5rem;
+      font-size: 6rem;
+    }
+
+    .slides h2 {
+      max-width: 19rem;
+      margin: 0 auto 1.5rem;
+      font-size: clamp(2rem, 8vw, 3rem);
+      line-height: 1;
+    }
+
+    .slides p {
+      max-width: 21rem;
+      margin: 0 auto 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    .slides article > a {
+      display: inline-block;
+      padding: 1rem 1.75rem;
+      border-radius: 999px;
+      color: white;
+      background: #2d2c2b;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Simpele telefoonillustratie */
+    .slides aside {
+      width: 10rem;
+      height: 11rem;
+      margin: 4rem auto -5rem;
+      padding: 0.65rem;
+      transform: rotate(-4deg);
+      background: white;
+      border: 0.2rem solid #2d2c2b;
+      border-radius: 1rem;
+    }
+
+    .slides aside > div {
+      height: 100%;
+      padding: 1rem 0.5rem;
+      background: #f7f4f2;
+      border-radius: 0.5rem;
+    }
+
+    .slides aside span {
+      display: block;
+      height: 1.2rem;
+      margin-bottom: 0.55rem;
+      background: #ffcf00;
+      border-radius: 999px;
+    }
+
+    /* Bolletjes onderaan */
+    .slider > footer {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+    }
+
+    .slider > footer button {
+      width: 0.65rem;
+      height: 0.65rem;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #d5d5d5;
+      cursor: pointer;
+    }
+
+    .slider > footer button.active {
+      background: #2d2c2b;
+    }
+
+  </style>
+</head>
+
+<body>
+  <section class="slider" aria-label="Headspace mogelijkheden">
+    <nav aria-label="Slidercategorieën">
+      <button class="active" type="button" data-slide="0">
+        <span></span>
+        AI guidance
+      </button>
+
+      <button type="button" data-slide="1">
+        <span></span>
+        Guided meditations
+      </button>
+
+      <button type="button" data-slide="2">
+        <span></span>
+        Sleep resources
+      </button>
+        <button type="button" data-slide="3">
+        <span></span>
+        Expert-led programs
+      </button>
+            <button type="button" data-slide="4">
+        <span></span>
+        Online therapy
+      </button>
+    </nav>
+
+    <div class="slides">
+      <article>
+        <figure>🤗</figure>
+        <h2>Always-there support</h2>
+        <p>Unpack what’s on your mind with Ebb, our empathetic AI companion, and get personalized recommendations.</p>
+        <a href="#">Chat with Ebb</a>
+
+        <aside>
+          <div>
+            <span></span>
+            <span></span>
+          </div>
+        </aside>
+      </article>
+
+      <article>
+        <figure>🎧</figure>
+        <h2>Feel-good library</h2>
+        <p>Explore 1,000+ guided meditations for feeling more relaxed — ad-free and always there.</p>
+        <a href="#">Learn more</a>
+
+        <aside>
+          <div>
+            <span></span>
+            <span></span>
+          </div>
+        </aside>
+      </article>
+
+      <article>
+        <figure>🌙</figure>
+        <h2>Better sleep</h2>
+        <p>Discover relaxing exercises, sleepcasts and sounds that help you wind down.</p>
+        <a href="#">Explore sleep</a>
+
+        <aside>
+          <div>
+            <span></span>
+            <span></span>
+          </div>
+        </aside>
+      </article>
+    </div>
+
+    <footer aria-label="Kies een slide">
+      <button class="active" type="button" data-slide="0" aria-label="Slide 1"></button>
+      <button type="button" data-slide="1" aria-label="Slide 2"></button>
+      <button type="button" data-slide="2" aria-label="Slide 3"></button>
+    </footer>
+  </section>
+
+  <script>
+    // Selecteer eerst het volledige slidercomponent.
+    const slider = document.querySelector(".slider");
+
+    // Zoek de slides, tabs en bolletjes alleen binnen deze slider.
+    const slidesContainer = slider.querySelector(".slides");
+    const slides = [...slidesContainer.querySelectorAll("article")];
+    const tabs = [...slider.querySelectorAll(":scope > nav button")];
+    const dots = [...slider.querySelectorAll(":scope > footer button")];
+
+    // Scroll vloeiend naar de slide die bij de index hoort.
+    function selectSlide(index) {
+      slides[index].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+    }
+
+    // Geef de juiste tab en het juiste bolletje de class active.
+    function setActiveSlide(index) {
+      tabs.forEach((tab, tabIndex) => {
+        tab.classList.toggle("active", tabIndex === index);
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === index);
+      });
+
+      // Schuif de actieve tab in beeld als de tabrij breder is dan het scherm.
+      tabs[index].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+    }
+
+    // Laat iedere tab naar de bijbehorende slide scrollen.
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        selectSlide(Number(tab.dataset.slide));
+      });
+    });
+
+    // Laat ieder bolletje naar de bijbehorende slide scrollen.
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        selectSlide(Number(dot.dataset.slide));
+      });
+    });
+
+    // Controleer welke slide tijdens het swipen het meest zichtbaar is.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSlide = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (first, second) =>
+              second.intersectionRatio - first.intersectionRatio
+          )[0];
+
+        if (visibleSlide) {
+          const index = slides.indexOf(visibleSlide.target);
+          setActiveSlide(index);
+        }
+      },
+      {
+        root: slidesContainer,
+        threshold: 0.6
+      }
+    );
+
+    // Voeg iedere slide toe aan de observer.
+    slides.forEach((slide) => {
+      observer.observe(slide);
+    });
+  </script>
+</body>
+</html>
