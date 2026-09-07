@@ -953,6 +953,14 @@ main section:nth-of-type(3){
         color: rgb(45, 44, 43);
       }
 
+      section > button{
+        background: rgb(45, 44, 43);
+      }
+
+      section > button span{
+        border-left: 0.8rem solid white;
+      }
+
     }
 
     .slides > article:nth-child(3) {
@@ -1161,4 +1169,166 @@ main section:nth-of-type(3){
     time{
       color: white;
     }
+}
+
+main section:nth-of-type(4){
+  padding-left: 1.2rem;
+  > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    h2{
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: -0.03em;
+      line-height: 1.1em;
+      color: #2D2C2B;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin: 5.35rem 1.2rem 7.1rem;
+    }
+
+    img{
+      position: absolute;
+    }
+
+    img:nth-of-type(1){
+      top: 1rem;
+      left: 1rem;
+      width: 4rem;
+    }
+    img:nth-of-type(2){
+      bottom: 4.3rem;
+      left: .75rem;
+      width: 3.5rem;
+    }
+    img:nth-of-type(3){
+      right: 0rem;
+      bottom: 5.5rem;
+      width: 3rem;
+    }
+    img:nth-of-type(4){
+      right: 2rem;
+      top: 2rem;
+      width: 4rem;
+    }
+
+
+  }
+
+  div:last-of-type{
+    display: flex;
+    gap: 0.75rem;
+
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  article:first-of-type{
+    margin-left: 2rem;
+  }
+
+  article:last-of-type{
+    margin-right: 3rem;
+  }
+
+  article {
+    /*
+      De kaart is iets smaller dan de container.
+      Hierdoor blijft een stukje van de volgende kaart zichtbaar.
+    */
+    flex: 0 0 calc(100% - 1.5rem);
+    min-height: 26rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+
+    padding: 2rem;
+    background: rgb(249, 244, 242);
+    border-radius: 1rem;
+
+    scroll-snap-align: start;
+
+    p:first-of-type {
+      margin: 0;
+
+      color: rgb(45, 44, 43);
+      font-size: 1.5rem;
+      font-weight: normal;
+      line-height: 1.3;
+    }
+
+    p:last-of-type {
+      max-width: 13.5rem;
+      margin: auto 0 0;
+
+      color: rgb(68, 66, 63);
+      font-size: 1rem;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+  }
+
+  /* Pijltjes rechtsonder */
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    padding-top: 1.5rem;
+    transform: translateX(-2rem);
+
+    button {
+      width: 2.75rem;
+      height: 2.75rem;
+
+      display: grid;
+      place-items: center;
+
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+
+      background: rgb(249, 244, 242);
+      cursor: pointer;
+
+      span {
+        width: 0.75rem;
+        height: 0.75rem;
+
+        border-top: 0.15rem solid rgb(68, 66, 63);
+        border-right: 0.15rem solid rgb(68, 66, 63);
+      }
+
+      /* Eerste pijl wijst naar links */
+      &:first-of-type span {
+        transform: rotate(-135deg);
+        margin-left: 0.25rem;
+      }
+
+      /* Tweede pijl wijst naar rechts */
+      &:last-of-type span {
+        transform: rotate(45deg);
+        margin-right: 0.25rem;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: default;
+      }
+    }
+  }
+
+
 }
