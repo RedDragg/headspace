@@ -303,54 +303,89 @@
 
                 <article>
                     <h2>Feel-good library</h2>
-                    <p>Explore 1,000+ guided meditations for feeling more relaxed — ad-free and always there.</p>
+                    <p>Explore 1,000+ guided meditations for feeling more relaxed — ad-free and always there. Try one for yourself.</p>
+                        <section aria-label="Audiovoorbeeld">
+                            <button type="button" aria-label="Afspelen">
+                                <span></span>
+                            </button>
+
+                            <p>Travel Sleep Tips</p>
+
+                            <div>
+                                <time>0:01</time>
+                                <input type="range" min="1" max="315" value="1" aria-label="Voortgang audio">
+                                <time>5:15</time>
+
+                            </div>
+                        <audio preload="metadata">
+                        <source src="audio/single-breathing.mp3" type="audio/mpeg">
+                        </audio>
+                            </section>
                     <a href="#">Learn more</a>
 
-                    <aside>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </aside>
+                    <img src="img/article2.png">
+
                 </article>
 
                 <article>
-                    <h2>Better sleep</h2>
-                    <p>Discover relaxing exercises, sleepcasts and sounds that help you wind down.</p>
-                    <a href="#">Explore sleep</a>
+                    <h2>Bedtime essentials</h2>
+                    <p>Sleep more soundly every night with bedtime meditations, proven exercises, and relaxing sounds. Give it a listen.</p>
+                    <section aria-label="Audiovoorbeeld">   
+                            <button type="button" aria-label="Afspelen">
+                                <span></span>
+                            </button>
 
-                    <aside>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </aside>
+                            <p>Travel Sleep Tips</p>
+
+                            <div>
+                                <time>0:01</time>
+                                <input type="range" min="1" max="700" value="1" aria-label="Voortgang audio">
+                                <time>10:00</time>
+
+                            </div>
+                        <audio preload="metadata">
+                        <source src="audio/single-midnight.mp3" type="audio/mpeg">
+                        </audio>
+                            </section>
+                    <a href="#">Explore sleep resources</a>
+
+                    <img src="img/article3.png">
+
                 </article>
 
                 <article>
-                    <h2>Better sleep</h2>
-                    <p>Discover relaxing exercises, sleepcasts and sounds that help you wind down.</p>
+                    <h2>Do-anywhere exercises</h2>
+                    <p>Reach your mental health goals with proven courses and expert-led guidance. Check out a preview here.</p>
+                        <section aria-label="Audiovoorbeeld">
+                            <button type="button" aria-label="Afspelen">
+                                <span></span>
+                            </button>
+
+                            <p>Travel Sleep Tips</p>
+
+                            <div>
+                                <time>0:01</time>
+                                <input type="range" min="1" max="334" value="1" aria-label="Voortgang audio">
+                                <time>5:34</time>
+
+                            </div>
+                        <audio preload="metadata">
+                        <source src="audio/TWU_EPT.mp3" type="audio/mpeg">
+                        </audio>
+                            </section>
                     <a href="#">Explore sleep</a>
 
-                    <aside>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </aside>
+                    <img src="img/article4.png">
+
                 </article>
 
                 <article>
-                    <h2>Better sleep</h2>
-                    <p>Discover relaxing exercises, sleepcasts and sounds that help you wind down.</p>
-                    <a href="#">Explore sleep</a>
+                    <h2>Convenient online therapy</h2>
+                    <p>Check your coverage, find a therapist, and start feeling your best with Headspace therapy.</p>
+                    <a href="#">Get started</a>
 
-                    <aside>
-                        <div>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </aside>
+                    <img src="img/article5.png">
+
                 </article>
             </div>
 
@@ -365,6 +400,7 @@
 
     </main>
 
+    <script src="js/audio.js"></script>
     <script>
         const openItems = document.querySelectorAll(
             "main section:nth-of-type(2) ul:first-of-type li"
