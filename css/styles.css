@@ -924,7 +924,6 @@ main section:nth-of-type(3){
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       scrollbar-width: none;
-      touch-action: pan-x;
     }
 
     /* Alle slides */
