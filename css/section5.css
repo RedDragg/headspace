@@ -21,6 +21,7 @@ main section:nth-of-type(5){
           display: flex;
           align-items: center;
           justify-content: center;
+          height: 100%;
         }
 
         img{
