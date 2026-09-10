@@ -1,0 +1,84 @@
+/* Header */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  h2 {
+    font-size: 2.15rem;
+    line-height: 100%;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: -0.03em;
+    color: #2d2c2b;
+    text-align: center;
+  }
+
+  ul {
+    position: relative;
+    width: 100%;
+    height: 2.35rem;
+    overflow: hidden;
+    list-style: none;
+    font-weight: bold;
+    font-size: 2.15rem;
+    letter-spacing: -0.03em;
+    color: #2d2c2b;
+    text-align: center;
+  }
+
+  li {
+    position: absolute;
+    inset: 0;
+
+    animation: move-up 12s infinite;
+    animation-delay: calc(var(--index) * -3s);
+  }
+
+  li:nth-child(1) {
+    --index: 0;
+  }
+
+  li:nth-child(2) {
+    --index: 3;
+  }
+
+  li:nth-child(3) {
+    --index: 2;
+  }
+
+  li:nth-child(4) {
+    --index: 1;
+  }
+}
+
+@keyframes move-up {
+  /* Tekst blijft zichtbaar */
+  0%,
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Tekst beweegt omhoog */
+  25% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  /* Tekst staat onder het zichtbare gedeelte */
+  25.1%,
+  95% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  /* Tekst komt van onderen binnen */
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

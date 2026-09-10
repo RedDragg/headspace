@@ -1,0 +1,116 @@
+main section:nth-of-type(5){
+  padding: 1.5rem;
+   > article{
+    background: #0061EF;
+    border-radius: 1rem;
+
+    > div:first-of-type{
+      display: flex;
+      padding: 1rem 0 2rem 0;
+      width: 100%;
+      overflow: hidden;
+
+      ul{
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+        animation: logo-scroll 25s linear infinite;
+        will-change: transform;
+
+        li{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        img{
+        max-width: 80px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    > div:last-of-type{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      h2{
+        text-align: center;
+        font-size: 2rem;
+        max-width: 21.875rem;
+        letter-spacing: -0.03em;
+        color: #FFFFFF;
+      }
+      p{
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: 1.625rem;
+        text-align: center;
+        max-width: 16.875rem;
+        font-size: 1rem;
+        letter-spacing: 0;
+        line-height: 1.5em;
+        color: #FFFFFF;
+      }
+
+      >div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+
+      >div a{
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        height: 3rem;
+        line-height: 1.1em;
+        max-width: 20.4375rem;
+        overflow: hidden;
+        padding: calc((2.75rem - 1.1em) / 2) 1.5rem;
+        text-overflow: ellipsis;
+        user-select: none;
+        white-space: nowrap;
+        background: #F9F4F2;
+        border-color: transparent;
+        border-radius: 2rem;
+        color: #44423F;
+        opacity: 1;
+        border: 0.125rem solid #FFFFFF !important;
+        height: auto;
+        width: fit-content;
+        text-decoration: none;
+      }
+
+      >div a:first-of-type{
+        background: #F9F4F2;
+        color: #44423F;
+      }
+
+      >div a:last-of-type{
+        background: #0061EF;
+        color: #FFFFFF;
+      }
+    }
+
+    >img{
+      width: 100%;
+      padding: 2rem;
+    }
+   }
+}
+
+@keyframes logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
